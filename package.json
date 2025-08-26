@@ -1,19 +1,14 @@
 {
-  "name": "test-eca-backend",
-  "version": "1.0.0",
-  "main": "save-json.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/anthony-bernardo/test-eca-backend.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/anthony-bernardo/test-eca-backend/issues"
-  },
-  "homepage": "https://github.com/anthony-bernardo/test-eca-backend#readme",
-  "description": ""
+	"name": "my-express-app",
+	"version": "1.0.0",
+	"description": "Express backend to save JSON from Angular",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"body-parser": "^1.20.0",
+		"cors": "^2.8.5",
+		"express": "^4.18.2"
+	}
 }
