@@ -1,21 +1,31 @@
-// save-json.js
+// server.js
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 
-// Data you want to save
-const data = { name: "Alice", age: 25 };
+const app = express();
+const PORT = 3000;
 
-// Path to save the JSON file
-const filePath = path.join(__dirname, 'data.json');
+// Middleware
+app.use(cors()); // allow requests from Angular frontend
+app.use(bodyParser.json()); // parse JSON body
 
-try {
-    // Convert object to JSON string with indentation
-    const jsonString = JSON.stringify(data, null, 2);
+// Endpoint to save JSON
+app.post('/api/save-json', (req, res) => {
+    const data = req.body; // JSON sent from Angular
+    const filePath = path.join(__dirname, 'data.json');
 
-    // Write JSON string to file
-    fs.writeFileSync(filePath, jsonString, 'utf8');
+    try {
+        fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
+        res.status(200).json({ message: 'JSON saved successfully!' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Error saving JSON' });
+    }
+});
 
-    console.log(`JSON saved successfully to ${filePath}`);
-} catch (err) {
-    console.error('Error writing JSON to file:', err);
-}
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
