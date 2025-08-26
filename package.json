@@ -1,0 +1,19 @@
+{
+  "name": "test-eca-backend",
+  "version": "1.0.0",
+  "main": "save-json.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anthony-bernardo/test-eca-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anthony-bernardo/test-eca-backend/issues"
+  },
+  "homepage": "https://github.com/anthony-bernardo/test-eca-backend#readme",
+  "description": ""
+}
